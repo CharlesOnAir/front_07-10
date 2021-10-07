@@ -5,7 +5,7 @@ async function displayDatas() {
     try {
         const content = await getDatas();
         content.forEach(element => {
-                document.getElementById("donnees").innerHTML += "<h3>Titre : "+element['title']+"</h3> <br /> <img src='https://api.gill-cote-bistro.fr"+element['image']['url']+"'/>";
+                document.getElementById("donnees").innerHTML += "<h3>Titre : "+element['title']+"</h3> <br /> <img src='https://api.gill-cote-bistro.fr"+element['image']['url']+"'/> <p>"+element['description']+"</p>";
             }
         );
     console.log(content);
