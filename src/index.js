@@ -1,17 +1,17 @@
 // @formatter:on
-import retrieveContent from './query.js';
+import getDatas from './query.js';
 
-async function showContent() {
+async function displayDatas() {
     try {
-        const content = await retrieveContent();
-
-        let elt = document.createElement('div');
-        elt.innerHTML = content.join('<br />');
-
-        document.getElementsByTagName('body')[0].appendChild(elt);
-    } catch (e) {
+        const content = await getDatas();
+        content.forEach(element => {
+                document.getElementById("donnees").innerHTML += "<h3>Titre : "+element['title']+"</h3> <br /> <img src='https://api.gill-cote-bistro.fr"+element['image']['url']+"'/>";
+            }
+        );
+    console.log(content);
+    }catch (e) {
         console.log('Error', e);
     }
-}
 
-showContent();
+}
+displayDatas();
